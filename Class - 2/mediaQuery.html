@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 100px;
+            background-color: red;
+        }
+
+        @media screen and (max-height: 404px) {
+            div {
+                height: 50px;
+            }
+        }
+
+        @media screen and (max-width: 503px) {
+            div {
+                width: 400px;
+            }
+
+            p {
+                color: aliceblue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>Hello</p>
+    </div>
+
+</body>
+
+</html>
