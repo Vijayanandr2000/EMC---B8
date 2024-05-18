@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 40%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 10px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <section id="form">
+        <h1>User Form </h1>
+        <form id="userForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender" required>
+                <option value=""></option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <button type="submit">Save</button>
+        </form>
+    </section>
+
+    <hr>
+
+    <section id="table">
+        <table id="tableData">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <!-- Add new datas as a each row -->
+            </tbody>
+        </table>
+    </section>
+
+
+    <script>
+
+        const form = document.getElementById("userForm")
+        const table = document.getElementById("tableData").getElementsByTagName("tbody")[0]
+        let editIdx = null
+
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value
+            const gender = document.getElementById("gender").value
+
+
+
+            if (editIdx === null) {
+                addRow(name, gender)
+            }
+            else {
+                updateRow(editIdx, name, gender)
+            }
+
+            form.reset()
+
+
+
+        });
+
+        const addRow = (name, gender) => {
+
+            const newRow = table.insertRow()
+            newRow.insertCell(0).textContent = name
+            newRow.insertCell(1).textContent = gender
+
+            const actionCell = newRow.insertCell(2)
+
+            const deletBtn = document.createElement("button")
+            deletBtn.textContent = "Delete"
+            deletBtn.onclick = () => deleteRow(newRow.rowIndex - 1)
+
+            const editBtn = document.createElement("button")
+            editBtn.textContent = "Edit"
+            editBtn.onclick = () => editRow(newRow.rowIndex - 1)
+
+            actionCell.appendChild(deletBtn)
+            actionCell.appendChild(editBtn)
+        }
+
+        const deleteRow = (clickedRowIndex) => {
+            table.deleteRow(clickedRowIndex)
+        }
+
+        const editRow = (clickedRowIndex) => {
+            const row = table.rows[clickedRowIndex]
+            console.log(row)
+            const name = row.cells[0].textContent
+            const gender = row.cells[1].textContent
+
+            document.getElementById("name").value = name
+            document.getElementById("gender").value = gender
+
+            editIdx = clickedRowIndex
+
+        }
+
+        const updateRow = (index, name, gender) => {
+            const row = table.rows[index]
+            row.cells[0].textContent = name
+            row.cells[1].textContent = gender
+
+            editIdx = null
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
