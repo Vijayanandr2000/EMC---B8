@@ -5,7 +5,7 @@ const Todo = () => {
   const [todoLists, setTodoLists] = useState([]);
 
   const fetchData = async () => {
-    const res = await fetch("http://localhost:8080/todolists");
+    const res = await fetch("https://emc-b8.onrender.com/todolists");
     const resData = await res.json();
 
     if (resData.status === 200) {
@@ -14,7 +14,7 @@ const Todo = () => {
   };
 
   const addTodoListData = async () => {
-    const res = await fetch("http://localhost:8080/todolists", {
+    const res = await fetch("https://emc-b8.onrender.com/todolists", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
