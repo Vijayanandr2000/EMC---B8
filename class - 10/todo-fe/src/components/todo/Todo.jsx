@@ -65,7 +65,7 @@ const Todo = () => {
 
       <ol>
         {todoLists.map((todoList) => (
-          <li>{todoList}</li>
+          <li>{todoList.value}</li>
         ))}
       </ol>
     </>
