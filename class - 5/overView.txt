@@ -1,0 +1,43 @@
+QUIZ APP
+
+1. landing
+ - name
+ - email
+ - submit
+
+2. instruction
+ - Test related instruction
+ - i1) Number of question
+ - i2) Timer
+ - i3) Click start QUIZ
+ - i4) check box - please reacd and acknowledge
+
+3. QUIZ Page
+ - Q1
+ - Q2
+ - Q3
+ - ...
+ - Q10
+
+4. Result
+ - Score
+ - Show Answer
+    - all question with answer and user selected ans
+
+5. Timer
+  - 60min -> running clock
+
+
+Question - A | B | C | D
+
+differnet QUIZ
+
+100 quiz -> DS?
+
+10 Random Generator -> A | B | C | D -> Assign
+
+
+Timer -> end -> AUTO SUBMIT
+
+
+HTMl
